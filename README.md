@@ -1,1 +1,1 @@
-# Applying Spring DI for Non Spring Applications
+# Applying Spring DI to Non Spring Applications
