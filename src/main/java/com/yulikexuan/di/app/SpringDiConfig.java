@@ -15,9 +15,14 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("com.yulikexuan.di")
 public class SpringDiConfig {
 
-    @Bean
-    public Engine engine() {
+    @Bean("gas")
+    public Engine generalEngine() {
         return Engine.builder().type("RAV4-2020-v8").volume(5).build();
+    }
+
+    @Bean("hybrid")
+    public Engine hybridEngine() {
+        return Engine.builder().type("Camry ECVT hybrid").volume(2).build();
     }
 
     @Bean
