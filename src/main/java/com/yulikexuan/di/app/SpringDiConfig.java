@@ -5,10 +5,10 @@ package com.yulikexuan.di.app;
 
 
 import com.yulikexuan.di.domain.model.Engine;
-import com.yulikexuan.di.domain.model.Transmission;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 
 @Configuration
@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 public class SpringDiConfig {
 
     @Bean("gas")
+    @Primary
     public Engine generalEngine() {
         return Engine.builder().type("RAV4-2020-v8").volume(5).build();
     }
@@ -23,11 +24,6 @@ public class SpringDiConfig {
     @Bean("hybrid")
     public Engine hybridEngine() {
         return Engine.builder().type("Camry ECVT hybrid").volume(2).build();
-    }
-
-    @Bean
-    public Transmission transmission() {
-        return Transmission.create("Sliding");
     }
 
 }///:~

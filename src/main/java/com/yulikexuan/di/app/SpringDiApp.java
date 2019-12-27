@@ -13,15 +13,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 @Slf4j
 public class SpringDiApp {
 
-    public static void main(String... args) {
-        Car car = getCarFromJavaConfig();
-        log.info(">>>>>>> The new toyota car is {}", car);
-    }
+    static ApplicationContext context = new AnnotationConfigApplicationContext(
+            SpringDiConfig.class);
 
-    private static Car getCarFromJavaConfig() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(
-                SpringDiConfig.class);
-        return context.getBean(Car.class);
+    public static void main(String... args) {
+        Car car = context.getBean(Car.class);
+        log.info(">>>>>>> The new toyota car is {}", car);
     }
 
 }///:~

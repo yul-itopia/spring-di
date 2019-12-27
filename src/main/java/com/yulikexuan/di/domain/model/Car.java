@@ -4,25 +4,20 @@
 package com.yulikexuan.di.domain.model;
 
 
-import lombok.Data;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import org.springframework.stereotype.Component;
 
 
-@Data
+@Getter
+@ToString
+@RequiredArgsConstructor
 @Component
 public class Car {
 
-    private Engine engine;
-    private Transmission transmission;
-
-    @Autowired
-    public Car(@Qualifier("gas")Engine engine, Transmission transmission) {
-        this.engine = engine;
-        this.transmission = transmission;
-    }
+    private final Engine engine;
+    private final Transmission transmission;
 
     public String getEntineType() {
         return this.engine.getType();
